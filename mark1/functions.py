@@ -41,10 +41,15 @@ def isWinner(i, j, board):
     return vertical or horizontal or diagonal
 
 def isGameOver(board):
+    isNone = False
     for i in range(0, numRows):
         for j in range(0, numRows):
             if isWinner(i, j, board):
                 return board[i][j]
+            if board[i][j] is None:
+                isNone = True
+    if not isNone:
+        return 0
     return -1
 
 def printBoard(board):
@@ -52,3 +57,6 @@ def printBoard(board):
         for j in range(0, numRows):
             print(board[i][j], end = ' ')
         print()
+
+def isEmpty(row, col, board):
+    return board[row][col] is None
