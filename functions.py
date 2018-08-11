@@ -1,5 +1,12 @@
-numRows = 5;
+numRows = 3;
 numWin = 3;
+
+def reverse(board):
+    for i in range(0, len(board)):
+        for j in range(0, len(board)):
+            if board[i][j] is not None:
+                board[i][j] = not board[i][j]
+    return board
 
 def createNewBoard():
     ret = [];
@@ -49,7 +56,7 @@ def isGameOver(board):
             if board[i][j] is None:
                 isNone = True
     if not isNone:
-        return 0
+        return -2
     return -1
 
 def printBoard(board):

@@ -1,5 +1,5 @@
 import functions
-import ai
+import mark1
 import random
 import time
 
@@ -25,7 +25,7 @@ while functions.isGameOver(board) == -1:
         functions.printBoard(board)
         time.sleep(random.randint(0, 2))
         print()
-        board = ai.play(board)
+        board = mark1.play(board)
     turn = not turn
 
 functions.printBoard(board)
