@@ -8,11 +8,10 @@ numGames = 0
 games1 = 0
 games2 = 0
 
-while True:
+for i in range(1, 100000):
 
     board = functions.createNewBoard()
     prevBoard = [n[:] for n in board]
-    # print()
 
     turn = True if random.randint(0, 1) == 0 else False
 
@@ -36,7 +35,7 @@ while True:
             # time.sleep(random.randint(0, 2))
             # print()
             board = functions.reverse(board)
-            board = mark1.play(board)
+            board = mark2.play(board)
             board = functions.reverse(board)
         else:
             # functions.printBoard(board)
@@ -58,5 +57,7 @@ while True:
 
     numGames += 1
     print(numGames)
-    print(float(games2) / float(games1 + games2))
-    print(float(numGames - games1 - games2) / float(numGames))
+    if (games1 + games2) > 0:
+        print(float(games1) / float(games1 + games2))
+
+mark2.unload()

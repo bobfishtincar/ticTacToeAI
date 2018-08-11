@@ -1,6 +1,16 @@
 import random
+import pickle
 
-loseBoards = []
+fileName = 'mark2Memory'
+fileObject = open(fileName,'rb')
+loseBoards = pickle.load(fileObject)
+fileObject.close()
+
+def unload():
+    fileName = 'mark2Memory'
+    fileObject = open(fileName,'wb')
+    pickle.dump(loseBoards, fileObject)
+    fileObject.close()
 
 def play(board):
     numSpaces = getNumSpaces(board)
