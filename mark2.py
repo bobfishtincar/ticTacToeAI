@@ -12,7 +12,8 @@ def unload():
     pickle.dump(loseBoards, fileObject)
     fileObject.close()
 
-def play(board):
+def play(board2):
+    board = [n[:] for n in board2]
     numSpaces = getNumSpaces(board)
     randNum = random.randint(0, len(numSpaces) - 1)
     if willLose(board, numSpaces, randNum):
@@ -26,7 +27,8 @@ def play(board):
         board[numSpaces[randNum][0]][numSpaces[randNum][1]] = False
     return board
 
-def play2(board, numSpaces):
+def play2(board2, numSpaces):
+    board = [n[:] for n in board2]
     randNum = random.randint(0, len(numSpaces) - 1)
     if willLose(board, numSpaces, randNum):
         if len(numSpaces) == 1:
@@ -48,7 +50,7 @@ def getNumSpaces(board):
     return ret
 
 def willLose(board, numSpaces, randNum):
-    newBoard = board
+    newBoard = [n[:] for n in board]
     newBoard[numSpaces[randNum][0]][numSpaces[randNum][1]] = False
     for i in range(0, len(loseBoards)):
         if newBoard == loseBoards[i]:

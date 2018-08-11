@@ -45,7 +45,15 @@ def isWinner(i, j, board):
     except IndexError:
         diagonal = False
 
-    return vertical or horizontal or diagonal
+    try:
+        diagonal2 = True
+        for x in range(numWin):
+            if board[i][j] != board[i-x][j+x]:
+                diagonal2 = False
+    except IndexError:
+        diagonal2 = False
+
+    return vertical or horizontal or diagonal or diagonal2
 
 def isGameOver(board):
     isNone = False
